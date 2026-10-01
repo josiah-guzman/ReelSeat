@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ReelSeat</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 900px; margin: 2rem auto; padding: 0 1rem; color: #222; }
+  h1 { margin-bottom: .25rem; }
+  .status { font-size: .85rem; color: #666; margin-bottom: 1rem; }
+  .status.ok::before { content: "● "; color: #2a9d4b; }
+  .status.err::before { content: "● "; color: #c0392b; }
+  select { padding: .4rem; font-size: 1rem; margin-right: .5rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; margin: 1rem 0 2rem; }
+  .card { border: 1px solid #ddd; border-radius: 8px; padding: 1rem; }
+  .card h3 { margin: 0 0 .25rem; }
+  .meta { color: #666; font-size: .85rem; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { text-align: left; padding: .5rem; border-bottom: 1px solid #eee; }
+  button { padding: .3rem .7rem; cursor: pointer; }
+  pre { background: #f5f5f5; padding: .75rem; border-radius: 6px; overflow: auto; font-size: .8rem; }
+</style>
+</head>
+<body>
+  <h1>ReelSeat</h1>
+  <div id="status" class="status">Connecting…</div>
+
+  <h2>Movies</h2>
+  <div id="movies" class="grid"></div>
+
+  <h2>Showtimes</h2>
+  <label>Theater:
+    <select id="theaterFilter"><option value="">All</option></select>
+  </label>
+  <label>Date:
+    <select id="dateFilter">
+      <option value="">All</option>
+      <option>2026-10-02</option>
+      <option>2026-10-03</option>
+    </select>
+  </label>
+  <table>
+    <thead><tr><th>Time</th><th>Movie</th><th>Theater</th><th>Format</th><th>Price</th><th>Seats left</th></tr></thead>
+    <tbody id="showtimes"></tbody>
+  </table>
+
+  <h2>Server logs <button id="refreshLogs">Refresh</button></h2>
+  <pre id="logs">Loading…</pre>
+
+  <h2>Raw API response</h2>
+  <pre id="raw">Click a movie to load /api/movies/:id</pre>
+
+<script>
+const API = "";  // same origin; use "http://localhost:8000" if opening the file directly
+
+async function api(path) {
+  const res = await fetch(API + path);
+  if (!res.ok) throw new Error(`${res.status} on ${path}`);
+  return res.json();
+}
+
+const $ = (id) => document.getElementById(id);
+
+async function loadMovies() {
+  const movies = await api("/api/movies");
+  $("movies").innerHTML = movies.map(m => `
+    <div class="card">
+      <h3>${m.title}</h3>
+      <div class="meta">${m.genre} · ${m.rating} · ${m.runtimeMinutes} min · ★ ${m.avgScore}</div>
+      <p>${m.synopsis}</p>
+      <button data-id="${m.id}">Details</button>
+    </div>`).join("");
+  $("movies").querySelectorAll("button").forEach(btn =>
+    btn.addEventListener("click", async () => {
+      const detail = await api(`/api/movies/${btn.dataset.id}`);
+      $("raw").textContent = JSON.stringify(detail, null, 2);
+    }));
+}
+
+async function loadTheaters() {
+  const theaters = await api("/api/theaters");
+  $("theaterFilter").innerHTML += theaters
+    .map(t => `<option value="${t.id}">${t.name}</option>`).join("");
+}
+
+async function loadShowtimes() {
+  const params = new URLSearchParams();
+  if ($("theaterFilter").value) params.set("theaterId", $("theaterFilter").value);
+  if ($("dateFilter").value) params.set("date", $("dateFilter").value);
+  const shows = await api("/api/showtimes?" + params);
+  $("showtimes").innerHTML = shows.map(s => `
+    <tr>
+      <td>${new Date(s.startTime).toLocaleString([], {month:"short", day:"numeric", hour:"numeric", minute:"2-digit"})}</td>
+      <td>${s.movieTitle}</td><td>${s.theaterName}</td><td>${s.format}</td>
+      <td>$${s.price.toFixed(2)}</td><td>${s.seatsAvailable}</td>
+    </tr>`).join("") || `<tr><td colspan="6">No showtimes match.</td></tr>`;
+}
+
+async function loadLogs() {
+  const lines = await api("/api/logs?limit=25");
+  $("logs").textContent = lines.join("\n") || "(no log entries yet)";
+}
+
+async function init() {
+  try {
+    await Promise.all([loadMovies(), loadTheaters()]);
+    await loadShowtimes();
+    await loadLogs();
+    $("refreshLogs").addEventListener("click", loadLogs);
+    $("theaterFilter").addEventListener("change", loadShowtimes);
+    $("dateFilter").addEventListener("change", loadShowtimes);
+    $("status").textContent = "Connected to ReelSeat API";
+    $("status").className = "status ok";
+  } catch (e) {
+    $("status").textContent = "Could not reach server: " + e.message;
+    $("status").className = "status err";
+  }
+}
+init();
+</script>
+</body>
+</html>

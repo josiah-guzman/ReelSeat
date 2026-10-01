@@ -1,0 +1,677 @@
+{
+  "theaters": [
+    {
+      "id": "th_001",
+      "name": "ReelSeat Downtown Cinema",
+      "address": "412 Main St",
+      "city": "Long Beach",
+      "state": "CA",
+      "zip": "90802",
+      "phone": "562-555-0141",
+      "lat": 33.7701,
+      "lng": -118.1937,
+      "amenities": [
+        "IMAX",
+        "Dolby Atmos",
+        "Reserved Seating",
+        "Recliners",
+        "Bar"
+      ],
+      "screens": [
+        "sc_001",
+        "sc_002",
+        "sc_003"
+      ]
+    },
+    {
+      "id": "th_002",
+      "name": "ReelSeat Harbor Plaza 8",
+      "address": "1900 Harbor Blvd",
+      "city": "Costa Mesa",
+      "state": "CA",
+      "zip": "92627",
+      "phone": "949-555-0187",
+      "lat": 33.6412,
+      "lng": -117.9187,
+      "amenities": [
+        "3D",
+        "Dolby Atmos",
+        "Reserved Seating",
+        "Arcade"
+      ],
+      "screens": [
+        "sc_004",
+        "sc_005"
+      ]
+    },
+    {
+      "id": "th_003",
+      "name": "ReelSeat Westside Drive-In",
+      "address": "77 Ocean Ave",
+      "city": "Santa Monica",
+      "state": "CA",
+      "zip": "90401",
+      "phone": "310-555-0123",
+      "lat": 34.0195,
+      "lng": -118.4912,
+      "amenities": [
+        "Outdoor",
+        "Snack Bar",
+        "Pet Friendly"
+      ],
+      "screens": [
+        "sc_006"
+      ]
+    }
+  ],
+  "screens": [
+    {
+      "id": "sc_001",
+      "theaterId": "th_001",
+      "name": "Screen 1 (IMAX)",
+      "format": "IMAX",
+      "rows": 10,
+      "seatsPerRow": 14,
+      "capacity": 140
+    },
+    {
+      "id": "sc_002",
+      "theaterId": "th_001",
+      "name": "Screen 2",
+      "format": "Standard",
+      "rows": 8,
+      "seatsPerRow": 12,
+      "capacity": 96
+    },
+    {
+      "id": "sc_003",
+      "theaterId": "th_001",
+      "name": "Screen 3 (Recliner)",
+      "format": "Recliner",
+      "rows": 6,
+      "seatsPerRow": 8,
+      "capacity": 48
+    },
+    {
+      "id": "sc_004",
+      "theaterId": "th_002",
+      "name": "Screen A",
+      "format": "3D",
+      "rows": 9,
+      "seatsPerRow": 12,
+      "capacity": 108
+    },
+    {
+      "id": "sc_005",
+      "theaterId": "th_002",
+      "name": "Screen B",
+      "format": "Standard",
+      "rows": 8,
+      "seatsPerRow": 10,
+      "capacity": 80
+    },
+    {
+      "id": "sc_006",
+      "theaterId": "th_003",
+      "name": "Main Lot",
+      "format": "Outdoor",
+      "rows": 1,
+      "seatsPerRow": 40,
+      "capacity": 40
+    }
+  ],
+  "movies": [
+    {
+      "id": "mv_001",
+      "title": "Midnight Harvest",
+      "genre": "Horror",
+      "rating": "R",
+      "runtimeMinutes": 112,
+      "synopsis": "A farming town's annual festival hides a century-old secret.",
+      "avgScore": 7.1,
+      "posterUrl": "https://example.com/posters/mv_001.jpg",
+      "releaseDate": "2026-08-14"
+    },
+    {
+      "id": "mv_002",
+      "title": "Orbit Break",
+      "genre": "Sci-Fi",
+      "rating": "PG-13",
+      "runtimeMinutes": 134,
+      "synopsis": "A salvage crew finds a derelict station that is still broadcasting.",
+      "avgScore": 8.0,
+      "posterUrl": "https://example.com/posters/mv_002.jpg",
+      "releaseDate": "2026-09-11"
+    },
+    {
+      "id": "mv_003",
+      "title": "The Last Lighthouse Keeper",
+      "genre": "Drama",
+      "rating": "PG",
+      "runtimeMinutes": 103,
+      "synopsis": "An aging keeper fights to keep a coastal beacon from being automated.",
+      "avgScore": 7.8,
+      "posterUrl": "https://example.com/posters/mv_003.jpg",
+      "releaseDate": "2026-06-27"
+    },
+    {
+      "id": "mv_004",
+      "title": "Pixel Pals: Level Up",
+      "genre": "Animation",
+      "rating": "G",
+      "runtimeMinutes": 94,
+      "synopsis": "Arcade characters team up to save their cabinet from being unplugged.",
+      "avgScore": 6.9,
+      "posterUrl": "https://example.com/posters/mv_004.jpg",
+      "releaseDate": "2026-06-21"
+    },
+    {
+      "id": "mv_005",
+      "title": "Double Cross Alley",
+      "genre": "Thriller",
+      "rating": "R",
+      "runtimeMinutes": 121,
+      "synopsis": "Two rival couriers are forced to cooperate over one chaotic night.",
+      "avgScore": 7.4,
+      "posterUrl": "https://example.com/posters/mv_005.jpg",
+      "releaseDate": "2026-06-26"
+    },
+    {
+      "id": "mv_006",
+      "title": "Sundays at Marlow's",
+      "genre": "Comedy",
+      "rating": "PG-13",
+      "runtimeMinutes": 98,
+      "synopsis": "A family diner's staff scrambles to survive a surprise health inspection.",
+      "avgScore": 6.5,
+      "posterUrl": "https://example.com/posters/mv_006.jpg",
+      "releaseDate": "2026-07-11"
+    }
+  ],
+  "showtimes": [
+    {
+      "id": "st_001",
+      "movieId": "mv_001",
+      "screenId": "sc_001",
+      "theaterId": "th_001",
+      "startTime": "2026-10-02T12:30:00-07:00",
+      "format": "IMAX",
+      "price": 19.5,
+      "seatsAvailable": 110
+    },
+    {
+      "id": "st_002",
+      "movieId": "mv_001",
+      "screenId": "sc_001",
+      "theaterId": "th_001",
+      "startTime": "2026-10-02T15:15:00-07:00",
+      "format": "IMAX",
+      "price": 19.5,
+      "seatsAvailable": 70
+    },
+    {
+      "id": "st_003",
+      "movieId": "mv_004",
+      "screenId": "sc_001",
+      "theaterId": "th_001",
+      "startTime": "2026-10-02T18:00:00-07:00",
+      "format": "IMAX",
+      "price": 19.5,
+      "seatsAvailable": 133
+    },
+    {
+      "id": "st_004",
+      "movieId": "mv_005",
+      "screenId": "sc_001",
+      "theaterId": "th_001",
+      "startTime": "2026-10-03T12:30:00-07:00",
+      "format": "IMAX",
+      "price": 19.5,
+      "seatsAvailable": 66
+    },
+    {
+      "id": "st_005",
+      "movieId": "mv_004",
+      "screenId": "sc_001",
+      "theaterId": "th_001",
+      "startTime": "2026-10-03T20:45:00-07:00",
+      "format": "IMAX",
+      "price": 19.5,
+      "seatsAvailable": 134
+    },
+    {
+      "id": "st_006",
+      "movieId": "mv_002",
+      "screenId": "sc_001",
+      "theaterId": "th_001",
+      "startTime": "2026-10-03T18:00:00-07:00",
+      "format": "IMAX",
+      "price": 19.5,
+      "seatsAvailable": 135
+    },
+    {
+      "id": "st_007",
+      "movieId": "mv_002",
+      "screenId": "sc_002",
+      "theaterId": "th_001",
+      "startTime": "2026-10-02T15:15:00-07:00",
+      "format": "Standard",
+      "price": 12.5,
+      "seatsAvailable": 27
+    },
+    {
+      "id": "st_008",
+      "movieId": "mv_001",
+      "screenId": "sc_002",
+      "theaterId": "th_001",
+      "startTime": "2026-10-02T20:45:00-07:00",
+      "format": "Standard",
+      "price": 12.5,
+      "seatsAvailable": 23
+    },
+    {
+      "id": "st_009",
+      "movieId": "mv_003",
+      "screenId": "sc_002",
+      "theaterId": "th_001",
+      "startTime": "2026-10-02T18:00:00-07:00",
+      "format": "Standard",
+      "price": 12.5,
+      "seatsAvailable": 25
+    },
+    {
+      "id": "st_010",
+      "movieId": "mv_003",
+      "screenId": "sc_002",
+      "theaterId": "th_001",
+      "startTime": "2026-10-03T15:15:00-07:00",
+      "format": "Standard",
+      "price": 12.5,
+      "seatsAvailable": 84
+    },
+    {
+      "id": "st_011",
+      "movieId": "mv_005",
+      "screenId": "sc_002",
+      "theaterId": "th_001",
+      "startTime": "2026-10-03T12:30:00-07:00",
+      "format": "Standard",
+      "price": 12.5,
+      "seatsAvailable": 88
+    },
+    {
+      "id": "st_012",
+      "movieId": "mv_005",
+      "screenId": "sc_002",
+      "theaterId": "th_001",
+      "startTime": "2026-10-03T18:00:00-07:00",
+      "format": "Standard",
+      "price": 12.5,
+      "seatsAvailable": 89
+    },
+    {
+      "id": "st_013",
+      "movieId": "mv_003",
+      "screenId": "sc_003",
+      "theaterId": "th_001",
+      "startTime": "2026-10-02T15:15:00-07:00",
+      "format": "Recliner",
+      "price": 17.5,
+      "seatsAvailable": 19
+    },
+    {
+      "id": "st_014",
+      "movieId": "mv_005",
+      "screenId": "sc_003",
+      "theaterId": "th_001",
+      "startTime": "2026-10-02T20:45:00-07:00",
+      "format": "Recliner",
+      "price": 17.5,
+      "seatsAvailable": 19
+    },
+    {
+      "id": "st_015",
+      "movieId": "mv_003",
+      "screenId": "sc_003",
+      "theaterId": "th_001",
+      "startTime": "2026-10-02T18:00:00-07:00",
+      "format": "Recliner",
+      "price": 17.5,
+      "seatsAvailable": 29
+    },
+    {
+      "id": "st_016",
+      "movieId": "mv_001",
+      "screenId": "sc_003",
+      "theaterId": "th_001",
+      "startTime": "2026-10-03T15:15:00-07:00",
+      "format": "Recliner",
+      "price": 17.5,
+      "seatsAvailable": 12
+    },
+    {
+      "id": "st_017",
+      "movieId": "mv_003",
+      "screenId": "sc_003",
+      "theaterId": "th_001",
+      "startTime": "2026-10-03T12:30:00-07:00",
+      "format": "Recliner",
+      "price": 17.5,
+      "seatsAvailable": 15
+    },
+    {
+      "id": "st_018",
+      "movieId": "mv_004",
+      "screenId": "sc_003",
+      "theaterId": "th_001",
+      "startTime": "2026-10-03T18:00:00-07:00",
+      "format": "Recliner",
+      "price": 17.5,
+      "seatsAvailable": 27
+    },
+    {
+      "id": "st_019",
+      "movieId": "mv_001",
+      "screenId": "sc_004",
+      "theaterId": "th_002",
+      "startTime": "2026-10-02T20:45:00-07:00",
+      "format": "3D",
+      "price": 16.0,
+      "seatsAvailable": 43
+    },
+    {
+      "id": "st_020",
+      "movieId": "mv_004",
+      "screenId": "sc_004",
+      "theaterId": "th_002",
+      "startTime": "2026-10-02T15:15:00-07:00",
+      "format": "3D",
+      "price": 16.0,
+      "seatsAvailable": 87
+    },
+    {
+      "id": "st_021",
+      "movieId": "mv_003",
+      "screenId": "sc_004",
+      "theaterId": "th_002",
+      "startTime": "2026-10-02T12:30:00-07:00",
+      "format": "3D",
+      "price": 16.0,
+      "seatsAvailable": 89
+    },
+    {
+      "id": "st_022",
+      "movieId": "mv_006",
+      "screenId": "sc_004",
+      "theaterId": "th_002",
+      "startTime": "2026-10-03T20:45:00-07:00",
+      "format": "3D",
+      "price": 16.0,
+      "seatsAvailable": 99
+    },
+    {
+      "id": "st_023",
+      "movieId": "mv_005",
+      "screenId": "sc_004",
+      "theaterId": "th_002",
+      "startTime": "2026-10-03T15:15:00-07:00",
+      "format": "3D",
+      "price": 16.0,
+      "seatsAvailable": 35
+    },
+    {
+      "id": "st_024",
+      "movieId": "mv_003",
+      "screenId": "sc_004",
+      "theaterId": "th_002",
+      "startTime": "2026-10-03T12:30:00-07:00",
+      "format": "3D",
+      "price": 16.0,
+      "seatsAvailable": 65
+    },
+    {
+      "id": "st_025",
+      "movieId": "mv_005",
+      "screenId": "sc_005",
+      "theaterId": "th_002",
+      "startTime": "2026-10-02T18:00:00-07:00",
+      "format": "Standard",
+      "price": 12.5,
+      "seatsAvailable": 22
+    },
+    {
+      "id": "st_026",
+      "movieId": "mv_001",
+      "screenId": "sc_005",
+      "theaterId": "th_002",
+      "startTime": "2026-10-02T20:45:00-07:00",
+      "format": "Standard",
+      "price": 12.5,
+      "seatsAvailable": 69
+    },
+    {
+      "id": "st_027",
+      "movieId": "mv_003",
+      "screenId": "sc_005",
+      "theaterId": "th_002",
+      "startTime": "2026-10-02T15:15:00-07:00",
+      "format": "Standard",
+      "price": 12.5,
+      "seatsAvailable": 20
+    },
+    {
+      "id": "st_028",
+      "movieId": "mv_006",
+      "screenId": "sc_005",
+      "theaterId": "th_002",
+      "startTime": "2026-10-03T12:30:00-07:00",
+      "format": "Standard",
+      "price": 12.5,
+      "seatsAvailable": 23
+    },
+    {
+      "id": "st_029",
+      "movieId": "mv_003",
+      "screenId": "sc_005",
+      "theaterId": "th_002",
+      "startTime": "2026-10-03T20:45:00-07:00",
+      "format": "Standard",
+      "price": 12.5,
+      "seatsAvailable": 31
+    },
+    {
+      "id": "st_030",
+      "movieId": "mv_006",
+      "screenId": "sc_005",
+      "theaterId": "th_002",
+      "startTime": "2026-10-03T15:15:00-07:00",
+      "format": "Standard",
+      "price": 12.5,
+      "seatsAvailable": 36
+    },
+    {
+      "id": "st_031",
+      "movieId": "mv_002",
+      "screenId": "sc_006",
+      "theaterId": "th_003",
+      "startTime": "2026-10-02T12:30:00-07:00",
+      "format": "Outdoor",
+      "price": 11.0,
+      "seatsAvailable": 33
+    },
+    {
+      "id": "st_032",
+      "movieId": "mv_004",
+      "screenId": "sc_006",
+      "theaterId": "th_003",
+      "startTime": "2026-10-02T15:15:00-07:00",
+      "format": "Outdoor",
+      "price": 11.0,
+      "seatsAvailable": 37
+    },
+    {
+      "id": "st_033",
+      "movieId": "mv_002",
+      "screenId": "sc_006",
+      "theaterId": "th_003",
+      "startTime": "2026-10-02T18:00:00-07:00",
+      "format": "Outdoor",
+      "price": 11.0,
+      "seatsAvailable": 22
+    },
+    {
+      "id": "st_034",
+      "movieId": "mv_004",
+      "screenId": "sc_006",
+      "theaterId": "th_003",
+      "startTime": "2026-10-03T15:15:00-07:00",
+      "format": "Outdoor",
+      "price": 11.0,
+      "seatsAvailable": 15
+    },
+    {
+      "id": "st_035",
+      "movieId": "mv_004",
+      "screenId": "sc_006",
+      "theaterId": "th_003",
+      "startTime": "2026-10-03T18:00:00-07:00",
+      "format": "Outdoor",
+      "price": 11.0,
+      "seatsAvailable": 35
+    },
+    {
+      "id": "st_036",
+      "movieId": "mv_002",
+      "screenId": "sc_006",
+      "theaterId": "th_003",
+      "startTime": "2026-10-03T12:30:00-07:00",
+      "format": "Outdoor",
+      "price": 11.0,
+      "seatsAvailable": 12
+    }
+  ],
+  "users": [
+    {
+      "id": "u_001",
+      "username": "filmfan42",
+      "displayName": "Alex R.",
+      "email": "alex@example.com",
+      "favoriteGenres": [
+        "Sci-Fi",
+        "Thriller"
+      ],
+      "homeTheaterId": "th_001"
+    },
+    {
+      "id": "u_002",
+      "username": "popcornqueen",
+      "displayName": "Dana K.",
+      "email": "dana@example.com",
+      "favoriteGenres": [
+        "Comedy",
+        "Animation"
+      ],
+      "homeTheaterId": "th_002"
+    },
+    {
+      "id": "u_003",
+      "username": "nightowl",
+      "displayName": "Sam T.",
+      "email": "sam@example.com",
+      "favoriteGenres": [
+        "Horror",
+        "Drama"
+      ],
+      "homeTheaterId": "th_001"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "rv_001",
+      "userId": "u_002",
+      "movieId": "mv_005",
+      "stars": 4,
+      "comment": "Great visuals, weak ending.",
+      "createdAt": "2026-09-23T18:30:00-07:00"
+    },
+    {
+      "id": "rv_002",
+      "userId": "u_003",
+      "movieId": "mv_004",
+      "stars": 4,
+      "comment": "Solid, but a bit long.",
+      "createdAt": "2026-09-17T12:00:00-07:00"
+    },
+    {
+      "id": "rv_003",
+      "userId": "u_001",
+      "movieId": "mv_002",
+      "stars": 3,
+      "comment": "Great visuals, weak ending.",
+      "createdAt": "2026-09-10T17:15:00-07:00"
+    },
+    {
+      "id": "rv_004",
+      "userId": "u_002",
+      "movieId": "mv_003",
+      "stars": 2,
+      "comment": "Great visuals, weak ending.",
+      "createdAt": "2026-09-23T18:30:00-07:00"
+    },
+    {
+      "id": "rv_005",
+      "userId": "u_003",
+      "movieId": "mv_005",
+      "stars": 4,
+      "comment": "Great visuals, weak ending.",
+      "createdAt": "2026-09-26T19:00:00-07:00"
+    },
+    {
+      "id": "rv_006",
+      "userId": "u_002",
+      "movieId": "mv_006",
+      "stars": 5,
+      "comment": "Solid, but a bit long.",
+      "createdAt": "2026-09-22T16:00:00-07:00"
+    },
+    {
+      "id": "rv_007",
+      "userId": "u_002",
+      "movieId": "mv_006",
+      "stars": 5,
+      "comment": "Loved every minute.",
+      "createdAt": "2026-09-16T11:15:00-07:00"
+    },
+    {
+      "id": "rv_008",
+      "userId": "u_002",
+      "movieId": "mv_002",
+      "stars": 2,
+      "comment": "Better than expected!",
+      "createdAt": "2026-09-29T10:00:00-07:00"
+    }
+  ],
+  "parties": [
+    {
+      "id": "pt_001",
+      "hostId": "u_001",
+      "showtimeId": "st_001",
+      "name": "Sci-Fi Saturday",
+      "memberIds": [
+        "u_001",
+        "u_002"
+      ],
+      "maxSize": 6
+    },
+    {
+      "id": "pt_002",
+      "hostId": "u_003",
+      "showtimeId": "st_006",
+      "name": "Horror Night Crew",
+      "memberIds": [
+        "u_003"
+      ],
+      "maxSize": 4
+    }
+  ]
+}
