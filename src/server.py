@@ -13,7 +13,7 @@ from logging.handlers import RotatingFileHandler
 from pathlib import Path
 from urllib.parse import urlparse, parse_qs
 
-BASE = Path(__file__).parent
+BASE = Path(__file__).parent.parent
 PORT = 8000
 
 # ---------- Logging ----------
@@ -51,8 +51,8 @@ log.addHandler(file_handler)
 log.addHandler(console_handler)
 log.addHandler(recent)
 
-DB = json.loads((BASE / "data.json").read_text())
-log.info("Loaded data.json: %s", ", ".join(f"{k}={len(v)}" for k, v in DB.items()))
+DB = json.loads((BASE / "data/reelseat_mock_data.json").read_text())
+log.info("Loaded reelseat_mock_data.json: %s", ", ".join(f"{k}={len(v)}" for k, v in DB.items()))
 
 
 def by_id(collection, item_id):
@@ -126,7 +126,7 @@ class Handler(BaseHTTPRequestHandler):
         query = parse_qs(url.query)
 
         if url.path in ("/", "/index.html"):
-            return self._send(200, (BASE / "index.html").read_bytes(), "text/html")
+            return self._send(200, (BASE / "src/index.html").read_bytes(), "text/html")
 
         for pattern, handler in ROUTES:
             m = re.match(pattern, url.path)

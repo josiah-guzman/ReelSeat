@@ -119,3 +119,31 @@ KeyError: 'movieTitle'
 2026-09-30 10:29:15,291 | WARNING | 192.168.1.23 GET /api/movies/mv_999 -> 404 (0.6 ms)
 2026-09-30 10:36:15,438 | INFO    | 192.168.1.23 GET /api/movies -> 200 (0.4 ms)
 2026-09-30 10:39:15,904 | INFO    | 127.0.0.1 GET /api/theaters/th_001 -> 200 (1.2 ms)
+2026-11-19 16:24:42,306 | INFO    | Loaded reelseat_mock_data.json: theaters=3, screens=6, movies=6, showtimes=36, users=3, reviews=8, parties=2
+2026-11-19 16:24:42,306 | INFO    | ReelSeat API starting on http://localhost:8000
+2026-11-19 16:25:12,686 | ERROR   | Unhandled error on /
+Traceback (most recent call last):
+  File "C:\Users\Josiah Guzman\source\repos\ReelSeat\src\server.py", line 113, in do_GET
+    self._route()
+  File "C:\Users\Josiah Guzman\source\repos\ReelSeat\src\server.py", line 129, in _route
+    return self._send(200, (BASE / "index.html").read_bytes(), "text/html")
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Josiah Guzman\AppData\Local\Programs\Python\Python311\Lib\pathlib.py", line 1050, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Josiah Guzman\AppData\Local\Programs\Python\Python311\Lib\pathlib.py", line 1044, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Josiah Guzman\\source\\repos\\ReelSeat\\index.html'
+2026-11-19 16:25:12,690 | WARNING | 127.0.0.1 GET / -> 500 (3.7 ms)
+2026-11-19 16:25:12,712 | WARNING | 127.0.0.1 GET /favicon.ico -> 404 (0.3 ms)
+2026-11-19 16:25:57,569 | INFO    | Server stopped by user
+2026-11-19 16:26:31,521 | INFO    | Loaded reelseat_mock_data.json: theaters=3, screens=6, movies=6, showtimes=36, users=3, reviews=8, parties=2
+2026-11-19 16:26:31,522 | INFO    | ReelSeat API starting on http://localhost:8000
+2026-11-19 16:26:36,634 | INFO    | 127.0.0.1 GET / -> 200 (0.2 ms)
+2026-11-19 16:26:36,649 | INFO    | 127.0.0.1 GET /api/movies -> 200 (0.2 ms)
+2026-11-19 16:26:36,650 | INFO    | 127.0.0.1 GET /api/theaters -> 200 (0.1 ms)
+2026-11-19 16:26:36,666 | INFO    | 127.0.0.1 GET /api/showtimes? -> 200 (0.3 ms)
+2026-11-19 16:26:43,878 | INFO    | 127.0.0.1 GET /api/movies/mv_001 -> 200 (0.1 ms)
+2026-11-19 16:26:45,458 | INFO    | 127.0.0.1 GET /api/movies/mv_001 -> 200 (0.1 ms)
+2026-11-19 16:26:49,385 | INFO    | 127.0.0.1 GET /api/movies/mv_006 -> 200 (0.2 ms)
